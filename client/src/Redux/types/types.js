@@ -1,0 +1,2 @@
+const SHOW_DOCUMENT = 'SHOW_DOCUMENT';
+export default SHOW_DOCUMENT;
