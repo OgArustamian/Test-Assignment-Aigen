@@ -18,7 +18,7 @@ app.post('/documents', (req, res) => {
       const requestedDocs = documents.filter((doc) => doc.id === +req.body.id);
       res.json(requestedDocs);
     } else {
-      const requestedDocs = documents.filter((doc) => (doc.title === req.body.title) || (doc.createdAt === req.body.date));
+      const requestedDocs = documents.filter((doc) => (doc.title === req.body.title) || (doc.createdAt.split(' ')[0] === req.body.date));
       res.json(requestedDocs);
     }
   } catch (err) {

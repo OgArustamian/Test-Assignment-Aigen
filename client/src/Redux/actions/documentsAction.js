@@ -1,8 +1,16 @@
-import SHOW_DOCUMENT from '../types/types';
+/* eslint-disable consistent-return */
+import {
+  ASC_SORT, DESC_SORT, SHOW_DOCUMENT,
+} from '../types/types';
 
 export const showDocuments = (docs) => ({
   type: SHOW_DOCUMENT,
   payload: docs,
+});
+
+export const sortDocuments = (field, type) => ({
+  type,
+  payload: field,
 });
 
 export const fetchDocuments = (inputData) => async (dispatch) => {
