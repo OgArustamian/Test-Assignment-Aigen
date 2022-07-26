@@ -26,7 +26,7 @@ function Sort() {
 
   return (
     <div className="sort-block">
-      <span className="sort-title">Сортировать по</span>
+      <span className="sort-title">Сортировать</span>
       <Select
         className="sort-select"
         defaultValue="По дате создания"

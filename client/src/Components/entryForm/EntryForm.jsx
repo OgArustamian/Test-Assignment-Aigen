@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  Button, Form, Input,
+  Button, Form, Input, message,
 } from 'antd';
 import './entryForm.css';
 import { fetchDocuments } from '../../Redux/actions/documentsAction';
@@ -25,8 +25,12 @@ function EntryForm() {
   }
 
   async function submitHandler(e) {
-    dispatch(fetchDocuments(inputs));
-    resetFormFields();
+    if (!inputs.id && !inputs.date && !inputs.title) {
+      message.warning('Заполните хотя бы одно поле');
+    } else {
+      dispatch(fetchDocuments(inputs));
+      resetFormFields();
+    }
   }
 
   function changeHandler(evt) {
@@ -56,8 +60,8 @@ function EntryForm() {
         <Input name="title" placeholder="введите название, например 'счет-фактура'" value={inputs.title} onChange={(evt) => changeHandler(evt)} />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">Submit</Button>
-        <Button className="reset-btn" htmlType="reset">Reset</Button>
+        <Button type="primary" htmlType="submit">Искать</Button>
+        <Button className="reset-btn" htmlType="reset">Очистить</Button>
       </Form.Item>
     </Form>
   );
